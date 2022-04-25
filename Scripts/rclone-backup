@@ -1,0 +1,12 @@
+#!/bin/bash
+
+for backup in keepass vault; do
+    src="$HOME/${backup}"
+    dest="google-drive:Backups/Arch Linux/${backup}"
+    
+    /usr/bin/rclone sync "${src}" "${dest}"
+    
+    # if (( $? != 0 )); then
+    #     # TODO: Receive email on failure
+    # fi
+done

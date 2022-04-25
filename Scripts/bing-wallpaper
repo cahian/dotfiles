@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+
+import json
+import os
+import subprocess
+from urllib.parse import parse_qs, urlparse
+from urllib.request import urlopen
+
+
+def get_query_value(url: str, key: str) -> str:
+    query = urlparse(url).query
+    values = parse_qs(query)[key]
+    return values[0]
+
+
+def execute_command(command: str) -> str:
+    output = subprocess.check_output(command, shell=True, text=True)
+    return output.strip("\n")
+
+
+class Wallpaper:
+    def __init__(self, resolution: str):
+        base_url = "https://www.bing.com"
+        images_archive_url = base_url + "/HPImageArchive.aspx?format=js&idx=0&n=1"
+        with urlopen(images_archive_url) as response:
+            images_archive = json.loads(response.read().decode())
+            image_base_url = images_archive["images"][0]["urlbase"]
+            self.url = base_url + image_base_url + "_" + resolution + ".jpg"
+            self.date = images_archive["images"][0]["startdate"]
+
+    def get_name(self) -> str:
+        identifier = get_query_value(self.url, "id")
+        identifier = identifier.replace("OHR.", "")
+        return self.date + "-" + identifier
+
+    def get_image(self) -> bytes:
+        with urlopen(self.url) as response:
+            return response.read()
+
+
+def main():
+    # Configure wallpaper
+    wallpaper = Wallpaper("UHD")
+    picspath = execute_command("xdg-user-dir PICTURES")
+    dirpath = picspath + "/BingWallpaper"
+    os.makedirs(dirpath, exist_ok=True)
+
+    # Write wallpaper to file
+    filename = wallpaper.get_name()
+    filepath = dirpath + "/" + filename
+    # TODO: Get the hash and test if the file that already exists was
+    # downloaded correctly (if not download again and overwrite)
+    if not os.path.exists(filepath):
+        with open(filepath, "wb") as file:
+            rawimage = wallpaper.get_image()
+            file.write(rawimage)
+
+    # Set wallpaper on desktop
+    desktop = os.environ["XDG_SESSION_DESKTOP"]
+    if "gnome" in desktop:
+        command = "gsettings set org.gnome.desktop.background picture-uri " + filepath
+    elif "sway" in desktop:
+        command = "swaymsg output '*' bg " + filepath + " fill"
+    execute_command(command)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+find "$1" -maxdepth 1 -not -type d | sort -R | head -n1

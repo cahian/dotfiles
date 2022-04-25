@@ -1,0 +1,11 @@
+[Unit]
+Description=Set bing wallpaper on desktop
+# After=network-online.target graphical-session.target
+# Wants=graphical-session.target
+
+[Timer]
+Unit=bing-wallpaper.service
+OnCalendar=minutely
+
+[Install]
+WantedBy=timers.target

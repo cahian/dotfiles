@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while read -r path; do
+    mkdir -p "${path/#\~/$HOME}"
+    cp -a "${path/#\~/$PWD}/." "${path/#\~/$HOME}"
+done < backup.txt

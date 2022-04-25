@@ -1,0 +1,10 @@
+~/.config/alacritty
+~/.config/fontconfig
+~/.config/i3status
+~/.config/nvim
+~/.config/sway
+~/.config/swaylock
+~/.config/tmux
+~/.config/fish
+~/Pictures/Gruvbox
+~/Scripts

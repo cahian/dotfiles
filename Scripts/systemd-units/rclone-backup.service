@@ -1,0 +1,11 @@
+[Unit]
+Description=Backup with Rclone
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/scripts/rclone-backup
+
+[Install]
+WantedBy=default.target

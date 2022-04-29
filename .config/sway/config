@@ -100,7 +100,7 @@ bindsym $mod+d exec $menu
 # Resize them with right mouse button + $mod
 # Despite the name, also works for non-floating windows
 floating_modifier $mod normal
-for_window [class="java"] floating enable
+for_window [class="[Cc]ryptomator"] floating enable
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload

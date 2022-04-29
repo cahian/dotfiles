@@ -13,7 +13,7 @@ general {
 order += "wireless _first_"
 order += "volume master"
 order += "battery all"
-order += "cpu_temperature 7"
+order += "cpu_temperature 6"
 order += "memory"
 order += "time"
 
@@ -34,7 +34,7 @@ battery all {
     format_percentage = "%.0f%s"
 }
 
-cpu_temperature 7 {  # x86_pkg_temp
+cpu_temperature 6 {  # x86_pkg_temp
     format = "T: %degrees °C"
 }
 

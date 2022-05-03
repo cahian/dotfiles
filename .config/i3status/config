@@ -44,5 +44,5 @@ memory {
 }
 
 time {
-    format = "%H:%M:%S %d-%m-%Y"
+    format = "%H:%M:%S %d/%m/%Y"
 }

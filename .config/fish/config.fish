@@ -57,6 +57,9 @@ if status is-interactive
     function check-video-integrity -a "video"
         ffmpeg -v error -i "$video" -f null - 2>check-video-integrity-error.log
     end
+    function count-characters -a "text"
+        printf "$text" | wc --chars
+    end
     function pacman-autoremove
         sudo pacman -Rs (pacman -Qdtq)
     end
@@ -69,6 +72,7 @@ if status is-interactive
     alias gth="get-theme"
     alias tth="toggle-theme"
     alias fzg="fuzzy-grep"
+    alias cch="count-characters"
     alias vim="nvim"
     alias cat="bat"
     alias ls="exa"

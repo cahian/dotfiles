@@ -6,6 +6,9 @@ if status is-interactive
             echo (basename (pwd))
         end
     end
+    function get-theme -d "Get GTK theme"
+        echo (eval echo (gsettings get org.gnome.desktop.interface gtk-theme))
+    end
     function toggle-theme -a "light" "dark" -d "Toggle GTK theme between light and dark theme"
         if test -n $light
             set light Adwaita
@@ -14,7 +17,7 @@ if status is-interactive
             set dark Adwaita-dark
         end
         
-        set theme (eval echo (gsettings get org.gnome.desktop.interface gtk-theme))
+        set theme (get-theme)
         switch $theme
             case $light
                 gsettings set org.gnome.desktop.interface gtk-theme $dark
@@ -60,6 +63,7 @@ if status is-interactive
     alias wip="git add -A && git commit -m wip"
     alias pcarm="pacman-autoremove"
     alias uaurs="update-aurs"
+    alias gth="get-theme"
     alias tth="toggle-theme"
     alias fzg="fuzzy-grep"
     alias vim="nvim"

@@ -18,12 +18,15 @@ if status is-interactive
         end
         
         set theme (get-theme)
+        echo "From: $theme"
         switch $theme
             case $light
                 gsettings set org.gnome.desktop.interface gtk-theme $dark
             case $dark
                 gsettings set org.gnome.desktop.interface gtk-theme $light
         end
+        set theme (get-theme)
+        echo "To: $theme"
     end
     function fuzzy-grep -a "initial_query" -d "Uses fzf as the selector interface for ripgrep"
         set rg_prefix "rg --column --line-number --no-heading --color=always --smart-case"

@@ -64,15 +64,16 @@ if status is-interactive
         sudo pacman -Rs (pacman -Qdtq)
     end
     
-    alias usysctl="systemctl --user"
-    alias ujrnctl="journalctl --user"
-    alias wip="git add -A && git commit -m wip"
-    alias pcarm="pacman-autoremove"
-    alias uaurs="update-aurs"
     alias gth="get-theme"
     alias tth="toggle-theme"
     alias fzg="fuzzy-grep"
+    alias uaurs="update-aurs"
     alias cch="count-characters"
+    alias pcarm="pacman-autoremove"
+
+    alias wip="git add -A && git commit -m wip"
+    alias usysctl="systemctl --user"
+    alias ujrnctl="journalctl --user"
     alias vim="nvim"
     alias cat="bat"
     alias ls="exa"

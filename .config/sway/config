@@ -44,7 +44,7 @@ set $menu j4-dmenu-desktop --dmenu=$bemenu-command | xargs swaymsg exec --
 ## Output configuration
 ###############################################################################
 
-set $wallpaper $(~/Scripts/random-file "$(xdg-user-dir PICTURES)/Gruvbox")
+set $wallpaper "$(~/Scripts/random-file '$(xdg-user-dir PICTURES)/Gruvbox')"
 output * background $wallpaper fill
 
 

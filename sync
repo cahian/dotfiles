@@ -1,6 +1,4 @@
 #!/bin/bash
 
-while read -r path; do
-    mkdir -p "${path/#\~/$PWD}"
-    cp -a "${path/#\~/$HOME}/." "${path/#\~/$PWD}"
-done < backup.txt
+# We are using --no-i-r to show more accurate values in the progress output
+rsync --recursive --human-readable --no-i-r --info=progress2 --exclude-from=".gitignore" --files-from="backup.txt" ~/ ./

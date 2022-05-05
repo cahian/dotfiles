@@ -90,4 +90,9 @@ if status is-interactive
     fish_add_path /opt/clang-format-static
     fish_add_path ~/.local/bin
     fish_add_path ~/scripts
+
+    # Start GNOME Keyring
+    if test -n "$DESKTOP_SESSION"
+        set -x (gnome-keyring-daemon --start | string split "=")
+    end
 end

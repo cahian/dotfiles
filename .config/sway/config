@@ -31,17 +31,14 @@ set $right l
 
 # Your preferred terminal emulator
 set $term alacritty
-for_window [app_id="Alacritty"] opacity 0.8
+# for_window [app_id="Alacritty"] opacity 0.8
 
 # Your preferred application launcher
-set $bemenu-command "bemenu            \
-    --ignorecase --list 20             \
-    --tb '#282828cc' --tf '#83a598cc'  \
-    --fb '#282828cc' --ff '#fbf1c7cc'  \
-    --nb '#282828cc' --nf '#fbf1c7cc'  \
-    --hb '#282828cc' --hf '#83a598cc'  \
-    --sb '#282828cc' --sf '#83a598cc'"
+set $bemenu-command "bemenu --ignorecase --list 20 --tb '#282828' --tf '#83a598' --fb '#282828' --ff '#fbf1c7' --nb '#282828' --nf '#fbf1c7' --hb '#282828' --hf '#83a598' --sb '#282828' --sf '#83a598'"
 set $menu j4-dmenu-desktop --dmenu=$bemenu-command | xargs swaymsg exec --
+
+# Layout mode for new containers
+workspace_layout tabbed
 
 
 ###############################################################################
@@ -60,11 +57,7 @@ output * background $wallpaper fill
 # then turn off your displays after another 1805 seconds, and turn your screens
 # back on when resumed. It will also lock your screen before your computer goes
 # to sleep.
-exec swayidle -w                               \
-    timeout 1800 "swaylock -f"                 \
-    timeout 1805 "swaymsg 'output * dpms off'" \
-    resume "swaymsg 'output * dpms on'"        \
-    before-sleep "swaylock -f"
+exec swayidle -w timeout 1800 "swaylock -f" timeout 1805 "swaymsg 'output * dpms off'" resume "swaymsg 'output * dpms on'" before-sleep "swaylock -f"
 
 
 ###############################################################################
@@ -76,7 +69,7 @@ input * {
     repeat_delay 300
     repeat_rate 30
     xkb_layout "br"
-    
+
     # Mouse/Touchpad
     click_method button_areas
     dwt enabled
@@ -110,9 +103,7 @@ for_window [class="[Cc]ryptomator"] floating enable
 bindsym $mod+Shift+c reload
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning                             \
-    -m "You pressed the exit shortcut. Do you really want to exit sway?" \
-    -b "Yes, exit sway" "swaymsg exit"
+bindsym $mod+Shift+e exec swaynag -t warning -m "You pressed the exit shortcut. Do you really want to exit sway?" -b "Yes, exit sway" "swaymsg exit"
 
 ## Moving around ##############################################################
 
@@ -222,7 +213,7 @@ mode "resize" {
     bindsym Down  resize grow height 10px
     bindsym Up    resize shrink height 10px
     bindsym Right resize grow width 10px
-    
+
     # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -242,7 +233,7 @@ bar {
     status_command i3status
 
     position top
-    font Comic Mono 12px
+    font monospace 12px
 
     colors {
         background #282828

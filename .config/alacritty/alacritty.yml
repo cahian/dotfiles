@@ -3,16 +3,16 @@ selection:
 
 font:
     normal:
-        family: Comic Mono
+        family: Jetbrains Mono
         style: Regular
     bold:
-        family: Comic Mono
+        family: Jetbrains Mono
         style: Bold
     italic:
-        family: Comic Mono
+        family: Jetbrains Mono
         style: Italic
     bold_italic:
-        family: Comic Mono
+        family: Jetbrains Mono
         style: Bold Italic
     size: 10
 

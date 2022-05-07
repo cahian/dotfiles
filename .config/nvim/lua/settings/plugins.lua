@@ -14,4 +14,10 @@ require("lualine").setup({
         theme = "gruvbox",
     },
 })
+require("zen-mode").setup({
+    window = {
+        width = 100,
+    },
+})
 require("colorizer").setup()
+require("nvim-tree").setup()

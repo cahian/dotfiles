@@ -1,8 +1,10 @@
 return require("packer").startup(function(use)
-    use { "mboughaba/i3config.vim" }
     use { "wbthomason/packer.nvim" }
+    use { "neovim/nvim-lspconfig" }
+    use { "mboughaba/i3config.vim" }
     use { "ellisonleao/gruvbox.nvim" }
     use { "norcalli/nvim-colorizer.lua" }
+    use { "folke/zen-mode.nvim" }
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate"
@@ -10,5 +12,14 @@ return require("packer").startup(function(use)
     use { 
         "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true }
+    }
+    use {
+        "nvim-telescope/telescope.nvim",
+        requires = { "nvim-lua/plenary.nvim" }
+    }
+    use {
+        "kyazdani42/nvim-tree.lua",
+        requires = { "kyazdani42/nvim-web-devicons" },
+        tag = "nightly"
     }
 end)

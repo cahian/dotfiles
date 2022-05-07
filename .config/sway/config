@@ -5,11 +5,15 @@
 ## Autostart
 ###############################################################################
 
-# exec gammastep-indicator
-
 # Import environment variables necessary for bing-wallpaper script:
 # ~/Scripts/bing-wallpaper
 # exec systemctl --user import-environment XDG_SESSION_DESKTOP
+
+# Adjust the color temperature of your screen
+# exec gammastep-indicator
+
+# Wayland notification daemon
+exec mako
 
 
 ###############################################################################

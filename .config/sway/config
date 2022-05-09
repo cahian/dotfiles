@@ -37,9 +37,6 @@ set $term alacritty
 set $bemenu-command "bemenu --ignorecase --list 20 --tb '#282828' --tf '#83a598' --fb '#282828' --ff '#fbf1c7' --nb '#282828' --nf '#fbf1c7' --hb '#282828' --hf '#83a598' --sb '#282828' --sf '#83a598'"
 set $menu j4-dmenu-desktop --dmenu=$bemenu-command | xargs swaymsg exec --
 
-# Layout mode for new containers
-workspace_layout tabbed
-
 
 ###############################################################################
 ## Output configuration
@@ -227,13 +224,21 @@ client.focused_inactive #282828 #7c6f64 #fbf1c7 #3c3836 #7c6f64
 client.unfocused        #282828 #3c3836 #a89984 #504945 #3c3836
 client.urgent           #2f343a #fb4934 #fbf1c7 #fb4934 #fb4934
 
+## Font #######################################################################
+
+font pango:monospace 10
+
+## Default Layout #############################################################
+
+workspace_layout tabbed
+
 ## Status Bar #################################################################
 
 bar {
     status_command i3status
 
     position top
-    font monospace 12px
+    font monospace 10
 
     colors {
         background #282828
@@ -262,6 +267,7 @@ bindsym XF86MonBrightnessUp   exec brightnessctl -n set +5%
 
 # Screenshot
 bindsym Print exec grimshot save area
+bindsym Shift+Print exec grimshot save screen
 
 
 include /etc/sway/config.d/*

@@ -33,7 +33,7 @@ case "$1" in
         copy "${HOME}" "${PWD}"
         ;;
     restore)
-        copy "${PWD}"  "${HOME}"
+        copy "${PWD}" "${HOME}"
         ;;
     help)
         help

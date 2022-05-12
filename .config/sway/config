@@ -266,7 +266,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl -n set 5%-
 bindsym XF86MonBrightnessUp   exec brightnessctl -n set +5%
 
 # Screenshot
-bindsym Print exec grimshot save area
+bindsym Print       exec grimshot save area
 bindsym Shift+Print exec grimshot save screen
 
 

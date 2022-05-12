@@ -262,8 +262,9 @@ bindsym XF86AudioNext        exec playerctl next
 bindsym XF86AudioPrev        exec playerctl previous
 
 # Brightness
-bindsym XF86MonBrightnessDown exec brightnessctl -n set 5%-
-bindsym XF86MonBrightnessUp   exec brightnessctl -n set +5%
+bindsym XF86MonBrightnessDown       exec brightnessctl -n set 5%-
+bindsym XF86MonBrightnessUp         exec brightnessctl -n set +5%
+bindsym Shift+XF86MonBrightnessDown exec brightnessctl set 0
 
 # Screenshot
 bindsym Print       exec grimshot save area

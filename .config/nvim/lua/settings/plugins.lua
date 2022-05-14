@@ -20,4 +20,3 @@ require("zen-mode").setup({
     },
 })
 require("colorizer").setup()
-require("nvim-tree").setup()

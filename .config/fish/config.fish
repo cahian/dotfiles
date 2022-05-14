@@ -16,7 +16,7 @@ if status is-interactive
         if test -n $dark
             set dark Adwaita-dark
         end
-        
+
         set theme (get-theme)
         echo "From: $theme"
         switch $theme
@@ -31,7 +31,7 @@ if status is-interactive
     function fuzzy-grep -a "initial_query" -d "Uses fzf as the selector interface for ripgrep"
         set rg_prefix "rg --column --line-number --no-heading --color=always --smart-case"
         set FZF_DEFAULT_COMMAND "$rg_prefix '$initial_query'"
-        
+
         fzf --bind "change:reload:$rg_prefix {q} || true" \
             --ansi --disabled --query "$initial_query"    \
             --height=50% --layout=reverse
@@ -45,8 +45,8 @@ if status is-interactive
         end
         popd
     end
-    function update-grub -d "Update grub with grub-mkconfig"
-        sudo grub-mkconfig -o /boot/grub/grub.cfg
+    function check-video-integrity -a "video"
+        ffmpeg -v error -i "$video" -f null - 2>check-video-integrity-error.log
     end
     function loopback-start -d "Start redirecting audio input to audio output"
         pacmd load-module module-loopback latency_msec=1
@@ -54,8 +54,8 @@ if status is-interactive
     function loopback-stop -d "Stop redirecting audio input to audio output"
         pacmd unload-module module-loopback
     end
-    function check-video-integrity -a "video"
-        ffmpeg -v error -i "$video" -f null - 2>check-video-integrity-error.log
+    function update-grub -d "Update grub with grub-mkconfig"
+        sudo grub-mkconfig -o /boot/grub/grub.cfg
     end
     function count-characters -a "text"
         printf "$text" | wc --chars
@@ -63,7 +63,7 @@ if status is-interactive
     function pacman-autoremove
         sudo pacman -Rs (pacman -Qdtq)
     end
-    
+
     alias gth="get-theme"
     alias tth="toggle-theme"
     alias fzg="fuzzy-grep"
@@ -79,7 +79,7 @@ if status is-interactive
     alias ls="exa"
     alias cp="rsync -ah"
     alias rm="rm -i"
-    
+
     set -U fish_greeting
     set VISUAL nvim
     set EDITOR nvim

@@ -17,6 +17,7 @@ usage:
     manager <command>
 
 commands:
+    help     print this command message
     sync     copy all directories in backup.txt to current folder
     restore  copy all directories in backup.txt to home folder
 "

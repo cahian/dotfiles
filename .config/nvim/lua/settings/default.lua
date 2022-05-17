@@ -4,8 +4,8 @@ local opt = vim.opt
 
 opt.showmode = false
 opt.termguicolors = true
-opt.background = "dark"
-cmd([[colorscheme gruvbox]])
+-- opt.background = "dark"
+-- cmd([[colorscheme gruvbox]])
 
 opt.autoindent = true
 opt.expandtab = true

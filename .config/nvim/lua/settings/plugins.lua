@@ -9,9 +9,12 @@ require("nvim-treesitter.configs").setup({
         additional_vim_regex_highlighting = false,
     },
 })
+require("github-theme").setup({
+    theme_style = "light",
+})
 require("lualine").setup({
     options = {
-        theme = "gruvbox",
+        theme = "auto",
     },
 })
 require("zen-mode").setup({

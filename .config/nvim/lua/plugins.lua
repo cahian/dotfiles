@@ -1,8 +1,9 @@
 return require("packer").startup(function(use)
     use { "wbthomason/packer.nvim" }
-    use { "neovim/nvim-lspconfig" }
+    -- use { "neovim/nvim-lspconfig" }
     use { "mboughaba/i3config.vim" }
     use { "ellisonleao/gruvbox.nvim" }
+    use { "projekt0n/github-nvim-theme" }
     use { "norcalli/nvim-colorizer.lua" }
     use { "folke/zen-mode.nvim" }
     use {

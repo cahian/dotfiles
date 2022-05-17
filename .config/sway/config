@@ -42,7 +42,7 @@ set $menu j4-dmenu-desktop --dmenu=$bemenu-command | xargs swaymsg exec --
 ## Output configuration
 ###############################################################################
 
-set $wallpaper "$(xdg-user-dir PICTURES)/Gruvbox/platform.jpg"
+set $wallpaper "$(xdg-user-dir PICTURES)/Gruvbox/jake-dog.png"
 output * background $wallpaper fill
 
 

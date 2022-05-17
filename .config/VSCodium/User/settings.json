@@ -1,0 +1,22 @@
+{
+    "telemetry.telemetryLevel": "off",
+    "update.mode": "none",
+    "update.showReleaseNotes": false,
+    "workbench.enableExperiments": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+
+    "editor.fontFamily": "\"Jetbrains Mono\", \"monospace\", monospace",
+    "editor.fontLigatures": false,
+    "editor.minimap.enabled": false,
+    "editor.tabSize": 8,
+    "files.insertFinalNewline": true,
+    "workbench.colorTheme": "GitHub Light",
+    "workbench.startupEditor": "none",
+
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "prettier.printWidth": 100,
+    "prettier.tabWidth": 4,
+    "prettier.trailingComma": "all",
+    "redhat.telemetry.enabled": false
+}

@@ -7,5 +7,7 @@
 .config/sway/
 .config/swaylock/
 .config/tmux/
+.config/VSCodium/User/keybindings.json
+.config/VSCodium/User/settings.json
 Pictures/Gruvbox/
 Scripts/

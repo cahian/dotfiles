@@ -22,8 +22,14 @@ if status is-interactive
         switch $theme
             case $light
                 gsettings set org.gnome.desktop.interface gtk-theme $dark
+                gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+                sed -i "s/    theme_style = \"light\"\,/    theme_style = \"dark\"\,/g" \
+                    ~/.config/nvim/lua/settings/plugins.lua
             case $dark
                 gsettings set org.gnome.desktop.interface gtk-theme $light
+                gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
+                sed -i "s/    theme_style = \"dark\"\,/    theme_style = \"light\"\,/g" \
+                    ~/.config/nvim/lua/settings/plugins.lua
         end
         set theme (get-theme)
         echo "To: $theme"
@@ -33,7 +39,7 @@ if status is-interactive
         set FZF_DEFAULT_COMMAND "$rg_prefix '$initial_query'"
 
         fzf --bind "change:reload:$rg_prefix {q} || true" \
-            --ansi --disabled --query "$initial_query"    \
+            --ansi --disabled --query $initial_query      \
             --height=50% --layout=reverse
     end
     function update-aurs -d "Update aur packages from git"
@@ -46,7 +52,7 @@ if status is-interactive
         popd
     end
     function check-video-integrity -a "video"
-        ffmpeg -v error -i "$video" -f null - 2>check-video-integrity-error.log
+        ffmpeg -v error -i $video -f null - 2>check-video-integrity-error.log
     end
     function loopback-start -d "Start redirecting audio input to audio output"
         pacmd load-module module-loopback latency_msec=1
@@ -58,7 +64,7 @@ if status is-interactive
         sudo grub-mkconfig -o /boot/grub/grub.cfg
     end
     function count-characters -a "text"
-        printf "$text" | wc --chars
+        printf $text | wc --chars
     end
     function pacman-autoremove
         sudo pacman -Rs (pacman -Qdtq)
@@ -75,7 +81,7 @@ if status is-interactive
     alias usysctl="systemctl --user"
     alias ujrnctl="journalctl --user"
     alias vim="nvim"
-    alias cat="bat"
+    # alias cat="bat"
     alias ls="exa"
     alias cp="rsync -ah"
     alias rm="rm -i"
@@ -83,7 +89,7 @@ if status is-interactive
     set -U fish_greeting
     set VISUAL nvim
     set EDITOR nvim
-    export BAT_THEME="gruvbox-dark"
+    # export BAT_THEME="github"
     export GOPATH=$HOME/.go
     fish_add_path (go env GOPATH)/bin
     fish_add_path /usr/lib/ccache/bin

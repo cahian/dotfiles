@@ -10,16 +10,19 @@ require("nvim-treesitter.configs").setup({
     },
 })
 require("github-theme").setup({
-    theme_style = "light",
+    theme_style = "dark",
 })
 require("lualine").setup({
     options = {
         theme = "auto",
+        section_separators = '',
+        component_separators = ''
     },
 })
 require("zen-mode").setup({
     window = {
-        width = 100,
+        width = 83,
     },
 })
+require("nvim-tree").setup()
 require("colorizer").setup()

@@ -12,7 +12,11 @@ return require("packer").startup(function(use)
     }
     use {
         "nvim-lualine/lualine.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true }
+        requires = { "kyazdani42/nvim-web-devicons" }
+    }
+    use {
+        "kyazdani42/nvim-tree.lua",
+        requires = { "kyazdani42/nvim-web-devicons" }
     }
     use {
         "nvim-telescope/telescope.nvim",

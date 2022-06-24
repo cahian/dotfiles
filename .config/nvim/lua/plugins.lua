@@ -11,11 +11,11 @@ return require("packer").startup(function(use)
     run = ":TSUpdate"
   }
   use {
-    "nvim-lualine/lualine.nvim",
+    "kyazdani42/nvim-tree.lua",
     requires = { "kyazdani42/nvim-web-devicons" }
   }
   use {
-    "kyazdani42/nvim-tree.lua",
+    "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons" }
   }
   use {

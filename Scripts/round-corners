@@ -1,70 +1,74 @@
 #!/bin/bash
 
 function round-corners {
-    local width="$1"
-    local height="$2"
+  local width="$1"
+  local height="$2"
 
-    # Calculate end positions.
-    local pwidth=$((${width} - 1))
-    local pheight=$((${height} - 1))
+  # Calculate end positions.
+  local pwidth=$((${width} - 1))
+  local pheight=$((${height} - 1))
 
-    if [[ ${3: -1} = "%" ]]; then
-        # Calculate corner pixels from percentage.
-        local wcorner="$((${width} * ${3:0:-1} / 100))"
-        local hcorner="$((${height} * ${3:0:-1} / 100))"
-    else
-        # Get corner pixels.
-        local wcorner="$3"
-        local hcorner="$3"
-    fi
+  if [[ ${3: -1} = "%" ]]; then
+    # Calculate corner pixels from percentage.
+    local wcorner="$((${width} * ${3:0:-1} / 100))"
+    local hcorner="$((${height} * ${3:0:-1} / 100))"
+  else
+    # Get corner pixels.
+    local wcorner="$3"
+    local hcorner="$3"
+  fi
 
-    # ImageMagick convert settings.
-    local size="${width}x${height}"
-    local draw="roundrectangle 0,0,${pwidth},${pheight},${wcorner},${hcorner}"
-    local file="$4"
+  # ImageMagick convert settings.
+  local size="${width}x${height}"
+  local draw="roundrectangle 0,0,${pwidth},${pheight},${wcorner},${hcorner}"
+  local file="$4"
 
-    echo "DEBUG:
-    width      ${width}
-    height     ${height}
-    pwidth     ${pwidth}
-    pheight    ${pheight}
-    wcorner    ${wcorner}
-    hcorner    ${hcorner}
-    size       ${size}
-    draw       ${draw}
-    file       ${file}
+  echo "DEBUG:
+  width    ${width}
+  height   ${height}
+  pwidth   ${pwidth}
+  pheight  ${pheight}
+  wcorner  ${wcorner}
+  hcorner  ${hcorner}
+  size     ${size}
+  draw     ${draw}
+  file     ${file}
 "
 
-    mkdir -p /tmp/round-corners
+  mkdir -p /tmp/round-corners
 
-    convert -size "${size}" xc:none -draw "${draw}" \
-        /tmp/round-corners/mask.png
-    convert -resize "${size}" "${file}" \
-        -matte /tmp/round-corners/mask.png \
-        -compose DstIn -composite "rounded-$(basename ${file})"
+  convert -size "${size}"         \
+          xc:none                 \
+          -draw "${draw}"         \
+          /tmp/round-corners/mask.png
+  convert -resize "${size}"                  \
+          "${file}"                          \
+          -matte /tmp/round-corners/mask.png \
+          -compose DstIn                     \
+          -composite "rounded-$(basename ${file})"
 }
 
 function help {
-    echo "Round image corners.
+  echo "Round image corners.
 
 usage:
-    round-corners [image width] [image height] [corner size] [image name]
+  round-corners [image width] [image height] [corner size] [image name]
 
 example:
-    round-corners 98 98 15% image.png
-    round-corners 98 98 6 image.png
+  round-corners 98 98 15% image.png
+  round-corners 98 98 6 image.png
 "
 }
 
 function error {
-    echo "Run 'round-corners --help' for usage."
-    exit 1
+  echo "Run 'round-corners --help' for usage."
+  exit 1
 }
 
 if [[ "$#" -eq 4 ]]; then
-    round-corners "$1" "$2" "$3" "$4"
+  round-corners "$1" "$2" "$3" "$4"
 elif [[ "$1" = "--help" ]]; then
-    help
+  help
 else
-    error
+  error
 fi

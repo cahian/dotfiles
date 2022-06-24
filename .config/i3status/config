@@ -1,13 +1,13 @@
 general {
-    colors = true
-    color_good = "#b8bb26"
-    color_degraded = "#fabd2f"
-    color_bad = "#fb4934"
-    color_separator = "#7c6f64"
+  colors = true
+  color_good = "#b8bb26"
+  color_degraded = "#fabd2f"
+  color_bad = "#fb4934"
+  color_separator = "#7c6f64"
 
-    interval = 1
+  interval = 1
 
-    output_format = "i3bar"
+  output_format = "i3bar"
 }
 
 order += "wireless _first_"
@@ -18,31 +18,31 @@ order += "memory"
 order += "time"
 
 wireless _first_ {
-    format_up = "W: %essid %quality"
-    format_down = "W: down"
-    format_quality = "%d%s"
+  format_up = "W: %essid %quality"
+  format_down = "W: down"
+  format_quality = "%d%s"
 }
 
 volume master {
-    format = "V: %volume"
-    format_muted = "V: muted"
+  format = "V: %volume"
+  format_muted = "V: muted"
 }
 
 battery all {
-    format = "B: %status %percentage"
-    format_down = "B: down"
-    format_percentage = "%.0f%s"
+  format = "B: %status %percentage"
+  format_down = "B: down"
+  format_percentage = "%.0f%s"
 }
 
 cpu_temperature 7 {  # x86_pkg_temp
-    format = "T: %degrees °C"
+  format = "T: %degrees °C"
 }
 
 memory {
-    format = "M: %used / %total"
-    format_degraded = "T: LOW %free"
+  format = "M: %used / %total"
+  format_degraded = "T: LOW %free"
 }
 
 time {
-    format = "%H:%M:%S %d/%m/%Y"
+  format = "%H:%M:%S %d/%m/%Y"
 }

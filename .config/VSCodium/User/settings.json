@@ -8,18 +8,17 @@
 
   "chaliceIcons.showArrows": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "'Jetbrains Mono', 'monospace', monospace",
+  "editor.fontFamily": "'Comic Mono', 'monospace', monospace",
   "editor.fontLigatures": true,
   "editor.formatOnSave": true,
   "editor.lineNumbers": "relative",
-  "editor.tabSize": 8,
+  "editor.tabSize": 2,
   "editor.minimap.enabled": false,
   "files.insertFinalNewline": true,
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "GitHub Light",
   "workbench.iconTheme": "chalice-icon-theme",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
-  "workbench.startupEditor": "none",
-  "editor.fontSize": 16
+  "workbench.startupEditor": "none"
 }

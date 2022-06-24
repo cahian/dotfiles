@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# get_sha512sum() {
-#     echo "$(sha512sum $1 | awk '{ print $1 }')"
+# function get_sha512sum {
+#   echo "$(sha512sum $1 | awk '{ print $1 }')"
 # }
-# 
+#
 # if [[ "${PKGBASE}" == "thunderbird-beta-bin" ]]; then
-#     old_sha512sum="$(get_sha512sum thunderbird-beta-bin.desktop)"
-#     sed -i "s/StartupWMClass=thunderbird/StartupWMClass=thunderbird-beta/" thunderbird-beta-bin.desktop
-#     new_sha512sum="$(get_sha512sum thunderbird-beta-bin.desktop)"
-#     sed -i "s/${old_sha512sum}/${new_sha512sum}/" PKGBUILD
+#   old_sha512sum="$(get_sha512sum thunderbird-beta-bin.desktop)"
+#   sed -i "s/StartupWMClass=thunderbird/StartupWMClass=thunderbird-beta/" thunderbird-beta-bin.desktop
+#   new_sha512sum="$(get_sha512sum thunderbird-beta-bin.desktop)"
+#   sed -i "s/${old_sha512sum}/${new_sha512sum}/" PKGBUILD
 # fi

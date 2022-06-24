@@ -9,26 +9,26 @@ opt.termguicolors = true
 
 opt.autoindent = true
 opt.expandtab = true
-opt.shiftwidth = 4
-opt.softtabstop = 4
-opt.tabstop = 8
+opt.shiftwidth = 2
+opt.softtabstop = 2
+opt.tabstop = 2
 api.nvim_create_autocmd("FileType", {
-    pattern = { "html", "css", "js", "json" },
-    callback = function()
-        opt.expandtab = true
-        opt.shiftwidth = 2
-        opt.softtabstop = 2
-        opt.tabstop = 8
-    end,
+  pattern = { "python" },
+  callback = function()
+    opt.expandtab = true
+    opt.shiftwidth = 4
+    opt.softtabstop = 4
+    opt.tabstop = 4
+  end,
 })
 api.nvim_create_autocmd("FileType", {
-    pattern = { "make", "c", "go" },
-    callback = function()
-        opt.expandtab = false
-        opt.shiftwidth = 8
-        opt.softtabstop = 8
-        opt.tabstop = 8
-    end,
+  pattern = { "make", "c", "go" },
+  callback = function()
+    opt.expandtab = false
+    opt.shiftwidth = 8
+    opt.softtabstop = 8
+    opt.tabstop = 8
+  end,
 })
 
 opt.number = true

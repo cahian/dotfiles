@@ -1,29 +1,29 @@
 #!/bin/bash
 
 cpu="cpu: $(
-    top -bn 1                 \
-    | grep -Pi 'Cpu\(s\)\s*:' \
-    | grep -Po '\d+,\d+ id'   \
-    | awk '{ print 100 - $1"%" }'
+  top -bn 1                 \
+  | grep -Pi 'Cpu\(s\)\s*:' \
+  | grep -Po '\d+,\d+ id'   \
+  | awk '{ print 100 - $1"%" }'
 )"
 mem="mem: $(
-    top -bn 1                     \
-    | grep -Pi 'Mem\s*:'          \
-    | awk -F ': *' '{ print $2 }' \
-    | awk -F ', *' '{ print $5"M/"$1"M" }'  # '{ print $1"M/"$5"M" }'
+  top -bn 1                     \
+  | grep -Pi 'Mem\s*:'          \
+  | awk -F ': *' '{ print $2 }' \
+  | awk -F ', *' '{ print $5"M/"$1"M" }'  # '{ print $1"M/"$5"M" }'
 )"
 temp="temp: $(
-    sensors -u 2>/dev/null       \
-    | grep -P '\s*temp\d_input'  \
-    | awk -F ': ' '{ print $2 }' \
-    | sort -n                    \
-    | tail -n 1                  \
-    | xargs printf '%i°C' 2>/dev/null
+  sensors -u 2>/dev/null       \
+  | grep -P '\s*temp\d_input'  \
+  | awk -F ': ' '{ print $2 }' \
+  | sort -n                    \
+  | tail -n 1                  \
+  | xargs printf '%i°C' 2>/dev/null
 )"
 batt="batt: $(
-    upower -i /org/freedesktop/UPower/devices/battery_BAT0 \
-    | grep 'percentage'                                    \
-    | grep -Po '\d+%'
+  upower -i /org/freedesktop/UPower/devices/battery_BAT0 \
+  | grep 'percentage'                                    \
+  | grep -Po '\d+%'
 )"
 audio="audio: $(pamixer --get-volume)%"
 light="light: $(brightnessctl -m | awk -F ',' '{ print $4 }')"

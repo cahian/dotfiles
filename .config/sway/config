@@ -62,16 +62,16 @@ exec swayidle -w timeout 1800 "swaylock -f" timeout 1805 "swaymsg 'output * dpms
 ###############################################################################
 
 input * {
-    # Keyboard
-    repeat_delay 300
-    repeat_rate 30
-    xkb_layout "br"
+  # Keyboard
+  repeat_delay 300
+  repeat_rate 30
+  xkb_layout "br"
 
-    # Mouse/Touchpad
-    click_method button_areas
-    dwt enabled
-    tap enabled
-    natural_scroll enabled
+  # Mouse/Touchpad
+  click_method button_areas
+  dwt enabled
+  tap enabled
+  natural_scroll enabled
 }
 
 
@@ -196,24 +196,24 @@ bindsym $mod+minus scratchpad show
 ## Resizing containers ########################################################
 
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left  resize shrink width 10px
-    bindsym $down  resize grow height 10px
-    bindsym $up    resize shrink height 10px
-    bindsym $right resize grow width 10px
+  # left will shrink the containers width
+  # right will grow the containers width
+  # up will shrink the containers height
+  # down will grow the containers height
+  bindsym $left  resize shrink width 10px
+  bindsym $down  resize grow height 10px
+  bindsym $up    resize shrink height 10px
+  bindsym $right resize grow width 10px
 
-    # Ditto, with arrow keys
-    bindsym Left  resize shrink width 10px
-    bindsym Down  resize grow height 10px
-    bindsym Up    resize shrink height 10px
-    bindsym Right resize grow width 10px
+  # Ditto, with arrow keys
+  bindsym Left  resize shrink width 10px
+  bindsym Down  resize grow height 10px
+  bindsym Up    resize shrink height 10px
+  bindsym Right resize grow width 10px
 
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+  # Return to default mode
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
 
@@ -235,24 +235,25 @@ workspace_layout tabbed
 ## Status Bar #################################################################
 
 bar {
-    status_command i3status
+  status_command i3status
 
-    position top
-    font pango:monospace 10
+  position top
+  font pango:monospace 10
 
-    colors {
-        background #282828
-        statusline #fbf1c7
-        separator  #7c6f64
+  colors {
+    background #282828
+    statusline #fbf1c7
+    separator  #7c6f64
 
-        focused_workspace  #458588 #076678 #fbf1c7
-        active_workspace   #282828 #7c6f64 #fbf1c7
-        inactive_workspace #282828 #3c3836 #a89984
-        urgent_workspace   #2f343a #fb4934 #fbf1c7
-    }
+    focused_workspace  #458588 #076678 #fbf1c7
+    active_workspace   #282828 #7c6f64 #fbf1c7
+    inactive_workspace #282828 #3c3836 #a89984
+    urgent_workspace   #2f343a #fb4934 #fbf1c7
+  }
 }
 
 exec waybar
+
 ## Custom Keybindings #########################################################
 
 # Audio

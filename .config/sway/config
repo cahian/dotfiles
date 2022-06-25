@@ -34,7 +34,7 @@ set $term alacritty
 for_window [app_id="Alacritty"] opacity 0.8
 
 # Your preferred application launcher
-set $bemenu-command "bemenu --ignorecase --list 20 --tb '#282828' --tf '#83a598' --fb '#282828' --ff '#fbf1c7' --nb '#282828' --nf '#fbf1c7' --hb '#282828' --hf '#83a598' --sb '#282828' --sf '#83a598'"
+set $bemenu-command "bemenu --ignorecase --list 20 --fn 'Comic Mono 11' --tb '#282828' --tf '#83a598' --fb '#282828' --ff '#fbf1c7' --nb '#282828' --nf '#fbf1c7' --hb '#282828' --hf '#83a598' --sb '#282828' --sf '#83a598'"
 set $menu j4-dmenu-desktop --dmenu=$bemenu-command | xargs swaymsg exec --
 
 
@@ -226,7 +226,7 @@ client.urgent           #2f343a #fb4934 #fbf1c7 #fb4934 #fb4934
 
 ## Font #######################################################################
 
-font pango:monospace 10
+font pango:Comic Mono 11
 
 ## Default Layout #############################################################
 
@@ -238,7 +238,7 @@ bar {
   status_command i3status
 
   position top
-  font pango:monospace 10
+  font pango:Comic Mono 11
 
   colors {
     background #282828

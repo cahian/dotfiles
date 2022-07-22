@@ -8,8 +8,7 @@
 
   "chaliceIcons.showArrows": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "'Comic Mono', 'monospace', monospace",
-  "editor.fontSize": 15,
+  "editor.fontFamily": "'Fira Mono','monospace', monospace",
   "editor.formatOnSave": true,
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,

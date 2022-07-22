@@ -1,5 +1,6 @@
 .config/alacritty/
 .config/fish/
+.config/fontconfig/
 .config/i3status/
 .config/mako/
 .config/nvim/

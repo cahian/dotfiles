@@ -1,45 +1,46 @@
 #!/bin/bash
 
 function copy {
-  # We are using --no-i-r to show more accurate values
-  # in the progress output
-  rsync --recursive --human-readable \
-        --no-i-r --info=progress2    \
-        --exclude-from=".gitignore"  \
-        --files-from="backup.txt"    \
-        "$1" "$2"
+    # We are using --no-i-r to show more accurate values
+    # in the progress output
+    # TODO: Remove folders that aren't in backup.txt file
+    rsync --recursive --human-readable \
+          --no-i-r --info=progress2    \
+          --exclude-from=".gitignore"  \
+          --files-from="backup.txt"    \
+          "$1" "$2"
 }
 
 function help {
-  echo "Manage your dotfiles.
+    echo "Manage your dotfiles.
 
 usage:
-  manager <command>
+    manager <command>
 
 commands:
-  help     print this command message
-  sync     copy all directories in backup.txt to current folder
-  restore  copy all directories in backup.txt to home folder
+    help     print this command message
+    sync     copy all directories in backup.txt to current folder
+    restore  copy all directories in backup.txt to home folder
 "
 }
 
 function error {
-  echo "manager $1: unknown command.
+    echo "manager $1: unknown command.
 Run 'manager help' for usage." >&2
-  exit 1
+    exit 1
 }
 
 case "$1" in
-  sync)
-    copy "${HOME}" "${PWD}"
-    ;;
-  restore)
-    copy "${PWD}" "${HOME}"
-    ;;
-  help)
-    help
-    ;;
-  *)
-    error "$1"
-    ;;
+    sync)
+        copy "${HOME}" "${PWD}"
+        ;;
+    restore)
+        copy "${PWD}" "${HOME}"
+        ;;
+    help)
+        help
+        ;;
+    *)
+        error "$1"
+        ;;
 esac

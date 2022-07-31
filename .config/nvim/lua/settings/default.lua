@@ -11,7 +11,7 @@ opt.autoindent = true
 opt.expandtab = true
 opt.shiftwidth = 4
 opt.softtabstop = 4
-opt.tabstop = 4
+opt.tabstop = 8
 
 api.nvim_create_autocmd("FileType", {
     pattern = { "html", "xml", "yml", "json", "css", "js" },
@@ -19,7 +19,16 @@ api.nvim_create_autocmd("FileType", {
         opt.expandtab = true
         opt.shiftwidth = 2
         opt.softtabstop = 2
-        opt.tabstop = 2
+        opt.tabstop = 8
+    end,
+})
+api.nvim_create_autocmd("FileType", {
+    pattern = { "go" },
+    callback = function()
+        opt.expandtab = false
+        opt.shiftwidth = 4
+        opt.softtabstop = 4
+        opt.tabstop = 4
     end,
 })
 api.nvim_create_autocmd("FileType", {

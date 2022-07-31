@@ -8,11 +8,11 @@
 
   "chaliceIcons.showArrows": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "'Fira Mono','monospace', monospace",
+  "editor.fontFamily": "'monospace', monospace",
+  "editor.fontLigatures": true,
   "editor.formatOnSave": true,
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
-  "editor.tabSize": 8,
   "files.insertFinalNewline": true,
   "window.autoDetectColorScheme": true,
   "workbench.colorTheme": "GitHub Light",

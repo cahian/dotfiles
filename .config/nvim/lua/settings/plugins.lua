@@ -13,8 +13,8 @@ require("nvim-treesitter.configs").setup({
     },
 })
 require("nvim-tree").setup({
-    open_on_setup_file = true,
-    open_on_tab = true,
+    open_on_setup_file = false,
+    open_on_tab = false,
     renderer = {
         icons = {
             show = {
